@@ -140,12 +140,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Database.cpp" />
+    <ClCompile Include="Discipline.cpp" />
+    <ClCompile Include="DiscplineManager.cpp" />
     <ClCompile Include="Login.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Student.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Database.h" />
+    <ClInclude Include="Discipline.h" />
+    <ClInclude Include="DisciplineManager.h" />
     <ClInclude Include="Login.h" />
     <ClInclude Include="Student.h" />
   </ItemGroup>
