@@ -139,6 +139,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Course.cpp" />
+    <ClCompile Include="CourseManager.cpp" />
     <ClCompile Include="Database.cpp" />
     <ClCompile Include="Discipline.cpp" />
     <ClCompile Include="DiscplineManager.cpp" />
@@ -147,6 +149,8 @@
     <ClCompile Include="Student.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Course.h" />
+    <ClInclude Include="CourseManager.h" />
     <ClInclude Include="Database.h" />
     <ClInclude Include="Discipline.h" />
     <ClInclude Include="DisciplineManager.h" />

@@ -2,6 +2,7 @@
 #include "Database.h"
 #include "Student.h"
 #include "DisciplineManager.h"
+#include "CourseManager.h"
 #include <iostream>
 using namespace std;
 
@@ -38,15 +39,23 @@ int main(void) {
 	//cout << "Pass: " << info.password << "\n";
 	//cout << "Name: " << info.name << "\n";
 	//cout << "ID: " << info.studentID << "\n";
-	char* name;
-	DisciplineManager* man = new DisciplineManager();
+	//char* name;
+	//DisciplineManager* man = new DisciplineManager();
 
-	//Discipline* dis = man->disciplines[0];
-	Discipline** dis = man->getAvailableDisciplines();
+	////Discipline* dis = man->disciplines[0];
+	//Discipline** dis = man->getAvailableDisciplines();
 
-	printf("%s\n", dis[0]->getName());
-	printf("%s\n", dis[1]->getName());
-	printf("%s\n", dis[2]->getName());
+	//printf("%s\n", dis[0]->getName());
+	//printf("%s\n", dis[1]->getName());
+	//printf("%s\n", dis[2]->getName());
+
+	CourseManager* courseMan = new CourseManager();
+	Course** courseList = courseMan->getAvailableCourses();
+	printf("%s: %s\n", courseList[0]->getName(), courseList[0]->getDisciplineBelongsTo());
+	printf("%s: %s\n", courseList[1]->getName(), courseList[1]->getDisciplineBelongsTo());
+	printf("%s: %s\n", courseList[2]->getName(), courseList[2]->getDisciplineBelongsTo());
+
+
 
 	return 0;
 }
