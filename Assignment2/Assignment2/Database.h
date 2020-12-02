@@ -16,15 +16,18 @@ class Login;
 class Database
 {
 private:
-	Login* LG;
 	char* username;
 	char* password;
 
 public:
 	Database(Login* Log);
+	Database();
+	Login* LG;
+
 	void sendLoginInfo(char* user, char* pass);
 	void authenticateLoginInfo();
 	void requestListOfStudents();
+
 };
 
 #endif

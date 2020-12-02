@@ -3,6 +3,7 @@
 #include "Student.h"
 #include "DisciplineManager.h"
 #include "CourseManager.h"
+#include "Home.h"
 #include <iostream>
 using namespace std;
 
@@ -49,11 +50,15 @@ int main(void) {
 	//printf("%s\n", dis[1]->getName());
 	//printf("%s\n", dis[2]->getName());
 
-	CourseManager* courseMan = new CourseManager();
-	Course** courseList = courseMan->getAvailableCourses();
-	printf("%s: %s\n", courseList[0]->getName(), courseList[0]->getDisciplineBelongsTo());
-	printf("%s: %s\n", courseList[1]->getName(), courseList[1]->getDisciplineBelongsTo());
-	printf("%s: %s\n", courseList[2]->getName(), courseList[2]->getDisciplineBelongsTo());
+	//CourseManager* courseMan = new CourseManager();
+	//Course** courseList = courseMan->getAvailableCourses();
+	//printf("%s: %s\n", courseList[0]->getName(), courseList[0]->getDisciplineBelongsTo());
+	//printf("%s: %s\n", courseList[1]->getName(), courseList[1]->getDisciplineBelongsTo());
+	//printf("%s: %s\n", courseList[2]->getName(), courseList[2]->getDisciplineBelongsTo());
+
+	Database* DB = new Database();
+	Home* myHome = new Home(); // myHome cuisine combo
+	Login *LW = new Login(DB, myHome);
 
 
 
