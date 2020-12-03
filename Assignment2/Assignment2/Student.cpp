@@ -1,7 +1,8 @@
 #include "Student.h"
+#include "Home.h"
 
 Student::Student(char* dis, int strikes, Course* course, int numCourses, float* Grades,
-	float balance, char* user, char* pass, char* Name, char* userID, bool sus, int y)
+	int balance, char* user, char* pass, char* Name, char* userID, bool sus, int y)
 {
 	myInfo.discipline = dis;
 	myInfo.cheatingStrikes = strikes;
@@ -50,9 +51,9 @@ void Student::setGrade(int grade, int gradeIndex)
 	myInfo.grades[gradeIndex] = grade;
 }
 
-void Student::setFinancialBalance(double balance)
+void Student::changeFinancialBalance(double amount)
 {
-	myInfo.financialBalance = balance;
+	myInfo.financialBalance += amount;
 }
 
 bool Student::getSuspensionStatus()
@@ -79,4 +80,9 @@ studentInfo Student::getStudentInfo()
 int Student::getNumberRegisteredCourses()
 {
 	return myInfo.numberOfCourses;
+}
+
+void Student::getFinancialSummary(Home* home)
+{
+	home->sendFinancialSummary(myInfo.financialBalance);
 }

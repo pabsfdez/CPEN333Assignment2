@@ -22,11 +22,11 @@ void Home::displayStudentOptions()
 
 	char input;
 	cout << "\n___________________________________________________________________\n";
-	cout << "\nWhat would you like to do?\n" << "1. Rank disciplines\n" << "2. View available courses\n\n";
+	cout << "\nWhat would you like to do?\n" << "1. Rank disciplines\n2. View available courses\n3. View financial summary\n\n";
 	cin >> input;
 
-	while (input != '1' && input != '2') {
-		cout << "Please select a valid option by entering a number from 1 to 2\n";
+	while (input != '1' && input != '2' && input != '3') {
+		cout << "Please select a valid option by entering a number from 1 to 3\n";
 		cin >> input;
 	}
 
@@ -34,21 +34,37 @@ void Home::displayStudentOptions()
 		cout << "\n___________________________________________________________________\n";
 		cout << "\n--Home sending request for available disciplines to DisciplineManager\n";
 
-		disMan->getAvailableDisciplines(this);
-
+		selectRankDisciplines();
 	}
 
-	if (input == '2') {
+	else if (input == '2') {
 		cout << "\n___________________________________________________________________\n";
 		cout << "\n--Home sending request for available courses to CourseManager\n";
 
-		courseMan->getAvailableCourses(this);
+		selectViewCourses();
 	}
 
+	else if (input == '3') {
+		cout << "\n___________________________________________________________________\n";
+		cout << "\n--Home sending request for financial summary from Student\n";
+
+		selectViewFinancialSummary();
+	}
 
 
 
 }
+
+void Home::selectRankDisciplines()
+{
+	disMan->getAvailableDisciplines(this);
+}
+
+void Home::selectViewCourses()
+{
+	courseMan->getAvailableCourses(this);
+}
+
 
 void Home::sendAvailableDisciplines(Discipline** availDisciplines)
 {
@@ -221,4 +237,54 @@ void Home::sendRegisterConfirmationMsg()
 
 	displayStudentOptions();
 
+}
+
+void Home::selectViewFinancialSummary()
+{
+	student->getFinancialSummary(this);
+}
+
+void Home::sendFinancialSummary(int balance)
+{
+	displayFinancialSummary(balance);
+}
+
+void Home::displayFinancialSummary(int balance)
+{
+	cout << "\nYour current UBC account balance is: $" << to_string(balance);
+
+
+	cout << "\n\nEnter 1 to pay off balance. Enter 0 to return to home screen.\n";
+	char input;
+	cin >> input;
+
+	while (input < 48 || input > courseMan->numAvailableCourses + 48) {
+		cout << "\nPlease select a valid option\n";
+		cin >> input;
+	}
+	if (input == '0') {
+		displayStudentOptions();
+	}
+	else
+	{
+
+		displayPaymentPage();
+
+	}
+}
+
+
+void Home::displayPaymentPage()
+{
+	int pay;
+	int cc;
+	cout << "\n\nEnter the amount you would like to pay\n";
+	cin >> pay;
+	cout << "\n\nEnter your credit card number\n";
+	cin >> cc;
+
+	student->changeFinancialBalance(pay);
+	cout << "\n\nYour payment was successful.\n";
+
+	displayStudentOptions();
 }

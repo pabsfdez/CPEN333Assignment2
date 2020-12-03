@@ -32,12 +32,17 @@ public:
 	void sendAvailableDisciplines(Discipline** availDisciplines);
 	void displayDisciplines();
 	void sendDisciplineRankings();
+	void selectViewCourses();
 	void sendAvailableCourses(Course** availCourses);
 	void displayAvailableCourses();
 	void sendCourseInformation(courseInfo courseInf, Course* C);
 	void displayCourseInformation();
 	void sendUnableToRegisterCourseError(char* msg);
 	void sendRegisterConfirmationMsg();
+	void selectViewFinancialSummary();
+	void sendFinancialSummary(int balance);
+	void displayFinancialSummary(int balance);
+	void displayPaymentPage();
 
 	void logout();
 };

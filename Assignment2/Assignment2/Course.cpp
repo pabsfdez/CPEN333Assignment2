@@ -2,13 +2,14 @@
 #include "Home.h"
 #include "Student.h"
 
-Course::Course(int numEnrolled, int numMax, char* name, char* discipline, int yL)
+Course::Course(int numEnrolled, int numMax, char* name, char* discipline, int yL, int price)
 {
 	myInfo.numEnrolledStudents = numEnrolled;
 	myInfo.numMaxStudentsAllowed = numMax;
 	myInfo.courseName = name;
 	myInfo.disciplineBelongsTo = discipline;
 	myInfo.yearLevel = yL;
+	myInfo.coursePrice = price;
 }
 
 Course::Course()
@@ -75,6 +76,9 @@ void Course::sendRegistrationInfo(Student* S, Home* home)
 		// update student's registered courses
 		S->updateRegisteredCourses(this, S->getNumberRegisteredCourses());
 		S->incrementNumberOfRegisteredCourses();
+
+		// subtract course price from student's financial summary
+		S->changeFinancialBalance(-1*myInfo.coursePrice);
 
 		// update this course's info to reflect new registration
 		myInfo.numEnrolledStudents++;

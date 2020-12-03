@@ -14,6 +14,7 @@ struct courseInfo {
 	char* disciplineBelongsTo;
 	char* courseName;
 	int yearLevel;
+	int coursePrice;
 };
 
 class Course
@@ -23,7 +24,7 @@ private:
 	Home* home;
 
 public:
-	Course(int numEnrolled, int numMax, char* courseName, char* discipline, int yL);
+	Course(int numEnrolled, int numMax, char* courseName, char* discipline, int yL, int price);
 	Course();
 	char* getName();
 	char* getDisciplineBelongsTo();
