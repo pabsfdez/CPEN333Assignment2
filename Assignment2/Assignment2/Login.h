@@ -1,5 +1,8 @@
 #pragma once
 #include "Database.h"
+#include "Home.h";
+#include "DisciplineManager.h"
+
 #ifndef __Login__
 #define __Login__
 #include <string>
@@ -14,11 +17,10 @@ private:
 
 public: 
 	Database* DB;
-
-	Login(Database* DataB);
-	Login();
+	Home* myHome;
+	Login(Database* dataB, Home* hm, DisciplineManager* DM);
 	void sendLoginInfo(char* user, char* pass);
-	void sendAccountInfo();
+	void sendAccountInfo(int accountType); // replace char* with User object (student, prof, etc)
 };
 
 #endif
