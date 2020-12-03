@@ -1,3 +1,8 @@
-﻿  Home.cpp
-C:\CPEN333Assignment2\Assignment2\Assignment2\Home.cpp(45,10): warning C4129: 'H': unrecognized character escape sequence
-  Assignment2.vcxproj -> C:\CPEN333Assignment2\Assignment2\Debug\Assignment2.exe
+﻿  main.cpp
+C:\CPEN333Assignment2\Assignment2\Assignment2\Login.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Student.cpp
+C:\CPEN333Assignment2\Assignment2\Assignment2\Student.cpp(4,1): error C2512: 'User': no appropriate default constructor available
+C:\CPEN333Assignment2\Assignment2\Assignment2\User.h(7,7): message : see declaration of 'User'
+C:\CPEN333Assignment2\Assignment2\Assignment2\Student.cpp(30,23): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  User.cpp
+  Generating Code...
