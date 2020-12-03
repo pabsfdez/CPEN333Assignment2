@@ -2,6 +2,7 @@
 #ifndef __Database__
 #define __Database__
 #include <string>
+#include "Student.h"
 using namespace std;
 
 class Login;
@@ -16,6 +17,15 @@ class Login;
 class Database
 {
 private:
+
+	char username1[50] = "student1";
+	char password1[50] = "password1";
+	char name1[50] = "John Smith";
+	char ID1[50] = "11237465";
+
+//	Student* stu1 = new Student(username1, password1, )
+
+
 	char* username;
 	char* password;
 
