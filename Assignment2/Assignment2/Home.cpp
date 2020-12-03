@@ -30,9 +30,34 @@ void Home::displayUserOptions()
 		if (input == '1') {
 			cout << "\n___________________________________________________________________\n";
 			cout << "\nSending request for available disciplines to DisciplineManager\n";
+
+			disMan->getAvailableDisciplines(this);
+			
 		}
 
 	}
 
 	
+}
+
+void Home::sendAvailableDisciplines(Discipline** availDisciplines)
+{
+	cout << "\Home received available disciplines from DisciplineManager\n";
+
+	availableDisciplines = availDisciplines;
+
+	displayDisciplines();
+}
+
+void Home::displayDisciplines() 
+{
+	cout << "\n___________________________________________________________________\n";
+	cout << "\nThe available disciplines to select are \n\n";
+
+	int j = sizeof(availableDisciplines) / sizeof(availableDisciplines[0]);
+	for (int i = 0; i < j; i++)
+	{
+		cout << availableDisciplines[i]->getName() << "\n";
+	}
+
 }

@@ -3,7 +3,10 @@
 #define __DisciplineManager__
 #include "Discipline.h"
 
+
 using namespace std;
+
+class Home;
 
 class DisciplineManager
 {
@@ -22,7 +25,7 @@ private:
 
 public:
 	DisciplineManager();
-	Discipline** getAvailableDisciplines();
+	void getAvailableDisciplines(Home* home);
 };
 
 #endif

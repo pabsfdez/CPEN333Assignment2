@@ -58,7 +58,8 @@ int main(void) {
 
 	Database* DB = new Database();
 	Home* myHome = new Home(); // myHome cuisine combo
-	Login *LW = new Login(DB, myHome);
+	DisciplineManager* disMan = new DisciplineManager();
+	Login *LW = new Login(DB, myHome, disMan);
 
 
 

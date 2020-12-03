@@ -1,11 +1,13 @@
 #include "DisciplineManager.h"
+#include "Home.h"
 
 DisciplineManager::DisciplineManager()
 {
 
 }
 
-Discipline** DisciplineManager::getAvailableDisciplines() {
+void DisciplineManager::getAvailableDisciplines(Home* home) {
 	
-	return disciplines;
+	cout << "\n DisciplineManager sending array of available disciplines to Home\n";
+	home->sendAvailableDisciplines(disciplines);
 }

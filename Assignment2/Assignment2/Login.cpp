@@ -2,7 +2,7 @@
 #include "../rt.h"
 
 
-Login::Login(Database* dataB, Home* hm) {
+Login::Login(Database* dataB, Home* hm, DisciplineManager* DM) {
 
 	// link Login and Database objects together
 	DB = dataB;
@@ -11,6 +11,9 @@ Login::Login(Database* dataB, Home* hm) {
 	// link Login and Home objects together
 	myHome = hm;
 	hm->LG = this;
+
+	// give Home object the pointer to the DisciplineManager object
+	myHome->disMan = DM;
 
 	char user[50];
 	char pass[50];
