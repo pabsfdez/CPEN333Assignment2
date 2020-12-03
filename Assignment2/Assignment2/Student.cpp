@@ -1,7 +1,7 @@
 #include "Student.h"
 
 Student::Student(char* dis, int strikes, Course* course, int numCourses, float* Grades,
-	float balance, char* user, char* pass, char* Name, char* userID)
+	float balance, char* user, char* pass, char* Name, char* userID, bool sus, int y)
 {
 	myInfo.discipline = dis;
 	myInfo.cheatingStrikes = strikes;
@@ -9,6 +9,10 @@ Student::Student(char* dis, int strikes, Course* course, int numCourses, float* 
 	myInfo.numberOfCourses = numCourses;
 	myInfo.grades = Grades;
 	myInfo.financialBalance = balance;
+	myInfo.suspended = sus;
+	myInfo.yearLevel = y;
+
+	// inherited class attributes
 	username = user;
 	password = pass;
 	name = Name;
@@ -31,14 +35,14 @@ void Student::setCheatingStrikes(int strikes)
 	myInfo.cheatingStrikes = strikes;
 }
 
-void Student::setCourse(Course* Course, int courseIndex)
+void Student::updateRegisteredCourses(Course* Course, int courseIndex)
 {
 	myInfo.courses[courseIndex] = Course;
 }
 
-void Student::setNumberOfCourses(int numCourses)
+void Student::incrementNumberOfRegisteredCourses()
 {
-	myInfo.numberOfCourses = numCourses;
+	myInfo.numberOfCourses++;
 }
 
 void Student::setGrade(int grade, int gradeIndex)
@@ -51,10 +55,28 @@ void Student::setFinancialBalance(double balance)
 	myInfo.financialBalance = balance;
 }
 
+bool Student::getSuspensionStatus()
+{
+	return myInfo.suspended;
+}
 
+char* Student::getDiscipline()
+{
+	return myInfo.discipline;
+}
+
+int Student::getYearLevel()
+{
+	return myInfo.yearLevel;
+}
 
 studentInfo Student::getStudentInfo()
 {
 	return myInfo;
 
+}
+
+int Student::getNumberRegisteredCourses()
+{
+	return myInfo.numberOfCourses;
 }

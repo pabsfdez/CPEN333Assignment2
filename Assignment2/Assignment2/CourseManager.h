@@ -19,9 +19,9 @@ private:
 	char mech423name[50] = "Mechatronic Product Design";
 	char elec201name[50] = "Circuit Analysis I";
 
-	Course* CPEN333 = new Course(120, 120, cpen333name, cpen);
-	Course* MECH423 = new Course(33, 35, mech423name, mech);
-	Course* ELEC201 = new Course(305, 310, elec201name, elec);
+	Course* CPEN333 = new Course(115, 120, cpen333name, cpen, 3);
+	Course* MECH423 = new Course(33, 35, mech423name, mech, 4);
+	Course* ELEC201 = new Course(305, 310, elec201name, elec, 2);
 
 	// create array of all available courses
 	Course* courses[3] = { CPEN333, MECH423, ELEC201 };
@@ -31,6 +31,7 @@ private:
 public:
 	CourseManager();
 	int numAvailableCourses = 3;
+
 
 	void getAvailableCourses(Home* home);
 

@@ -8,6 +8,7 @@
 using namespace std;
 
 class Login;
+class Student;
 
 class Home
 {
@@ -16,6 +17,8 @@ private:
 	Discipline** availableDisciplines;
 	Course** availableCourses;
 	courseInfo courseInformation;
+	Student* student;
+	Course* course;
 
 public:
 	Home();
@@ -23,16 +26,18 @@ public:
 	DisciplineManager* disMan;
 	CourseManager* courseMan;
 
-	void sendAccountInfo(int accType); // char* to be replaced by Account object
-	void displayUserOptions(); // char* to be replaced by Account object
+	void sendStudentInfo(Student* S);
+	void displayStudentOptions(); 
 	void selectRankDisciplines();
 	void sendAvailableDisciplines(Discipline** availDisciplines);
 	void displayDisciplines();
 	void sendDisciplineRankings();
 	void sendAvailableCourses(Course** availCourses);
 	void displayAvailableCourses();
-	void sendCourseInformation(courseInfo course);
+	void sendCourseInformation(courseInfo courseInf, Course* C);
 	void displayCourseInformation();
+	void sendUnableToRegisterCourseError(char* msg);
+	void sendRegisterConfirmationMsg();
 
 	void logout();
 };

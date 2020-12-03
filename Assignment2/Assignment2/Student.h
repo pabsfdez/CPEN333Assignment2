@@ -8,10 +8,12 @@ using namespace std;
 struct studentInfo {
 	char* discipline;
 	int cheatingStrikes;
+	bool suspended;
 	Course* courses[7];
 	int numberOfCourses;
 	float* grades;
 	float financialBalance;
+	int yearLevel;
 };
 
 class Student : public User
@@ -21,14 +23,19 @@ private:
 
 public:
 	Student(char* dis, int strikes, Course* course, int numCourses, float* Grades,
-		float balance, char* user, char* pass, char* Name, char* userID);
+		float balance, char* user, char* pass, char* Name, char* userID, bool sus, int y);
 	//Student();
 	void setDiscipline(char* dis);
 	void setCheatingStrikes(int strikes);
-	void setCourse(Course* Course, int courseIndex);
-	void setNumberOfCourses(int numCourses);
+	void updateRegisteredCourses(Course* Course, int courseIndex);
+	void incrementNumberOfRegisteredCourses();
 	void setGrade(int grade, int gradeIndex);
 	void setFinancialBalance(double balance);
+	bool getSuspensionStatus();
+	char* getDiscipline();
+	int getYearLevel();
+	int getNumberRegisteredCourses();
+
 	studentInfo getStudentInfo();
 
 };

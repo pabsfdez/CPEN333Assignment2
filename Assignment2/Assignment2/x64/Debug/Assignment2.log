@@ -1,0 +1,47 @@
+﻿  rt.cpp
+C:\CPEN333Assignment2\Assignment2\rt.cpp(64,22): error C2440: 'initializing': cannot convert from 'char *' to 'LPWSTR'
+C:\CPEN333Assignment2\Assignment2\rt.cpp(64,22): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\CPEN333Assignment2\Assignment2\rt.cpp(87,17): error C2664: 'BOOL CreateProcessW(LPCWSTR,LPWSTR,LPSECURITY_ATTRIBUTES,LPSECURITY_ATTRIBUTES,BOOL,DWORD,LPVOID,LPCWSTR,LPSTARTUPINFOW,LPPROCESS_INFORMATION)': cannot convert argument 2 from 'char *' to 'LPWSTR'
+C:\CPEN333Assignment2\Assignment2\rt.cpp(88,25): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\um\processthreadsapi.h(377,1): message : see declaration of 'CreateProcessW'
+C:\CPEN333Assignment2\Assignment2\rt.cpp(475,65): error C2664: 'HANDLE CreateMutexW(LPSECURITY_ATTRIBUTES,BOOL,LPCWSTR)': cannot convert argument 3 from 'char *' to 'LPCWSTR'
+C:\CPEN333Assignment2\Assignment2\rt.cpp(475,62): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\um\synchapi.h(438,1): message : see declaration of 'CreateMutexW'
+C:\CPEN333Assignment2\Assignment2\rt.cpp(815,71): error C2664: 'HANDLE CreateEventW(LPSECURITY_ATTRIBUTES,BOOL,BOOL,LPCWSTR)': cannot convert argument 4 from 'char *' to 'LPCWSTR'
+C:\CPEN333Assignment2\Assignment2\rt.cpp(815,68): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\um\synchapi.h(480,1): message : see declaration of 'CreateEventW'
+C:\CPEN333Assignment2\Assignment2\rt.cpp(859,75): error C2664: 'HANDLE CreateEventW(LPSECURITY_ATTRIBUTES,BOOL,BOOL,LPCWSTR)': cannot convert argument 4 from 'char *' to 'LPCWSTR'
+C:\CPEN333Assignment2\Assignment2\rt.cpp(859,72): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\um\synchapi.h(480,1): message : see declaration of 'CreateEventW'
+C:\CPEN333Assignment2\Assignment2\rt.cpp(938,81): error C2664: 'HANDLE CreateSemaphoreW(LPSECURITY_ATTRIBUTES,LONG,LONG,LPCWSTR)': cannot convert argument 4 from 'char *' to 'LPCWSTR'
+C:\CPEN333Assignment2\Assignment2\rt.cpp(938,78): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\um\synchapi.h(820,1): message : see declaration of 'CreateSemaphoreW'
+C:\CPEN333Assignment2\Assignment2\rt.cpp(1156,11): error C2664: 'HANDLE CreateFileMappingW(HANDLE,LPSECURITY_ATTRIBUTES,DWORD,DWORD,DWORD,LPCWSTR)': cannot convert argument 6 from 'char *' to 'LPCWSTR'
+C:\CPEN333Assignment2\Assignment2\rt.cpp(1161,30): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\um\memoryapi.h(185,1): message : see declaration of 'CreateFileMappingW'
+C:\CPEN333Assignment2\Assignment2\rt.cpp(1189,10): error C2664: 'HANDLE CreateFileMappingW(HANDLE,LPSECURITY_ATTRIBUTES,DWORD,DWORD,DWORD,LPCWSTR)': cannot convert argument 6 from 'char *' to 'LPCWSTR'
+C:\CPEN333Assignment2\Assignment2\rt.cpp(1194,34): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\um\memoryapi.h(185,1): message : see declaration of 'CreateFileMappingW'
+C:\CPEN333Assignment2\Assignment2\rt.cpp(1370,26): error C2664: 'HANDLE CreateFileMappingW(HANDLE,LPSECURITY_ATTRIBUTES,DWORD,DWORD,DWORD,LPCWSTR)': cannot convert argument 6 from 'char *' to 'LPCWSTR'
+C:\CPEN333Assignment2\Assignment2\rt.cpp(1375,26): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\um\memoryapi.h(185,1): message : see declaration of 'CreateFileMappingW'
+C:\CPEN333Assignment2\Assignment2\rt.cpp(1804,3): error C2664: 'DWORD FormatMessageW(DWORD,LPCVOID,DWORD,DWORD,LPWSTR,DWORD,va_list *)': cannot convert argument 5 from 'char [512]' to 'LPWSTR'
+C:\CPEN333Assignment2\Assignment2\rt.cpp(1805,46): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\um\winbase.h(2423,1): message : see declaration of 'FormatMessageW'
+  Course.cpp
+  CourseManager.cpp
+  Database.cpp
+C:\CPEN333Assignment2\Assignment2\Assignment2\Login.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Discipline.cpp
+  DiscplineManager.cpp
+  Home.cpp
+C:\CPEN333Assignment2\Assignment2\Assignment2\Home.cpp(45,10): warning C4129: 'H': unrecognized character escape sequence
+  Login.cpp
+C:\CPEN333Assignment2\Assignment2\Assignment2\Login.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  main.cpp
+C:\CPEN333Assignment2\Assignment2\Assignment2\Login.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Student.cpp
+C:\CPEN333Assignment2\Assignment2\Assignment2\Student.cpp(46,30): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\CPEN333Assignment2\Assignment2\Assignment2\Student.cpp(51,28): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  User.cpp
+  Generating Code...

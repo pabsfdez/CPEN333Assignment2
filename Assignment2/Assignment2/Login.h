@@ -14,13 +14,16 @@ class Login
 private:
 	char* username;
 	char* password;
+	Student* student;
 
 public:
 	Database* DB;
 	Home* myHome;
 	Login(Database* dataB, Home* hm, DisciplineManager* DM, CourseManager* CM);
 	void sendLoginInfo(char* user, char* pass);
-	void sendAccountInfo(int accountType); // replace char* with User object (student, prof, etc)
+	void sendStudentInfo(Student* S);
+	void sendProfInfo(); 
+
 };
 
 #endif

@@ -1,11 +1,5 @@
 #include "Login.h"
 
-Database::Database(Login* Log)
-{
-	LG = Log;
-	LG->DB = this;
-}
-
 Database::Database()
 {
 
@@ -23,9 +17,8 @@ void Database::sendLoginInfo(char* user, char* pass) {
 void Database::authenticateLoginInfo() {
 	cout << "\n--Database has authenticated username: " << username << " with password: " << password << "\n";
 
-	int accountType = 1; // account type 1 means student
 
-	cout << "\n--Database sending account: " << to_string(accountType) << " to Login" << "\n";
+	cout << "\n--Database sending account: " << stu1->getName() << " to Login" << "\n";
 
-	LG->sendAccountInfo(accountType);
+	LG->sendStudentInfo(stu1);
 }

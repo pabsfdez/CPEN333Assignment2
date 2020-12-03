@@ -1,4 +1,5 @@
 #include "Home.h"
+#include "Student.h"
 
 Home::Home()
 {
@@ -6,46 +7,45 @@ Home::Home()
 
 }
 
-void Home::sendAccountInfo(int accType)
+void Home::sendStudentInfo(Student* S)
 {
-	accountType = accType;
-	cout << "\n--Home has received account: " << to_string(accountType) << " from Login" << "\n";
+	cout << "\n--Home has received account: " << S->getName() << " from Login" << "\n";
 
-	displayUserOptions();
+	student = S;
+	displayStudentOptions();
 }
 
-void Home::displayUserOptions()
+void Home::displayStudentOptions()
 {
 
-	cout << "\n--Home displaying options for user of account type: " << to_string(accountType);
+	cout << "\n--Home displaying options for user of account type Student";
 
 	char input;
-	if (accountType == 1) { // to be replaced by proper check for Student user
-		cout << "\n___________________________________________________________________\n";
-		cout << "\nWhat would you like to do?\n" << "1. Rank disciplines\n" << "2. View available courses\n\n";
+	cout << "\n___________________________________________________________________\n";
+	cout << "\nWhat would you like to do?\n" << "1. Rank disciplines\n" << "2. View available courses\n\n";
+	cin >> input;
+
+	while (input != '1' && input != '2') {
+		cout << "Please select a valid option by entering a number from 1 to 2\n";
 		cin >> input;
+	}
 
-		while (input != '1' && input != '2') {
-			cout << "Please select a valid option by entering a number from 1 to 2\n";
-			cin >> input;
-		}
+	if (input == '1') {
+		cout << "\n___________________________________________________________________\n";
+		cout << "\n--Home sending request for available disciplines to DisciplineManager\n";
 
-		if (input == '1') {
-			cout << "\n___________________________________________________________________\n";
-			cout << "\n--Home sending request for available disciplines to DisciplineManager\n";
-
-			disMan->getAvailableDisciplines(this);
-
-		}
-
-		if (input == '2') {
-			cout << "\n___________________________________________________________________\n";
-			cout << "\n--Home sending request for available courses to CourseManager\n";
-
-			courseMan->getAvailableCourses(this);
-		}
+		disMan->getAvailableDisciplines(this);
 
 	}
+
+	if (input == '2') {
+		cout << "\n___________________________________________________________________\n";
+		cout << "\n--Home sending request for available courses to CourseManager\n";
+
+		courseMan->getAvailableCourses(this);
+	}
+
+
 
 
 }
@@ -127,7 +127,7 @@ void Home::sendDisciplineRankings()
 
 	// need to send rankings array to Student object
 
-	displayUserOptions();
+	displayStudentOptions();
 }
 
 
@@ -159,7 +159,7 @@ void Home::displayAvailableCourses()
 		cin >> input;
 	}
 	if (input == '0') {
-		displayUserOptions();
+		displayStudentOptions();
 	}
 	else
 	{
@@ -172,8 +172,9 @@ void Home::displayAvailableCourses()
 
 }
 
-void Home::sendCourseInformation(courseInfo course) {
-	courseInformation = course;
+void Home::sendCourseInformation(courseInfo courseInf, Course* C) {
+	courseInformation = courseInf;
+	course = C;
 }
 
 void Home::displayCourseInformation()
@@ -192,12 +193,32 @@ void Home::displayCourseInformation()
 		cin >> input;
 	}
 	if (input == '0') {
-		displayUserOptions();
+		displayStudentOptions();
 	}
 	else if (input == '1')
 	{
-		cout << "\n Registering course\n";
-
+		course->sendRegistrationInfo(student, this);
 
 	}
+}
+
+
+void Home::sendUnableToRegisterCourseError(char* msg)
+{
+	cout << "\n\nUnable to register course due to: " << msg << "\nPress enter to return to home screen\n";
+	getchar();
+	getchar();
+	cout << "\n___________________________________________________________________\n";
+
+	displayStudentOptions();
+}
+
+
+void Home::sendRegisterConfirmationMsg()
+{
+	cout << "\n\nSuccessfully registered in course\n";
+	cout << "\n___________________________________________________________________\n";
+
+	displayStudentOptions();
+
 }

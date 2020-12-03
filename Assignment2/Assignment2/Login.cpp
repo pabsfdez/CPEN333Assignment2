@@ -36,9 +36,9 @@ void Login::sendLoginInfo(char* user, char* pass) {
 	DB->sendLoginInfo(username, password);
 }
 
-void Login::sendAccountInfo(int accountType) {
-	cout << "\n--Login has received account: " << to_string(accountType) << " from Database" << "\n";
-	cout << "\n--Login sending account: " << to_string(accountType) << " to Home" << "\n";
+void Login::sendStudentInfo(Student* S) {
+	cout << "\n--Login has received account: " << S->getName() << " from Database" << "\n";
+	cout << "\n--Login sending account: " << S->getName() << " to Home" << "\n";
 
-	myHome->sendAccountInfo(accountType);
+	myHome->sendStudentInfo(S);
 }
