@@ -167,6 +167,7 @@ void Home::displayAvailableCourses()
 
 		displayCourseInformation();
 
+
 	}
 
 }
@@ -179,4 +180,24 @@ void Home::displayCourseInformation()
 {
 	cout << "\nCourse name: " << courseInformation.courseName << "\nNumber of seats: " << to_string(courseInformation.numMaxStudentsAllowed) << "\nNumber enrolled: "
 		<< to_string(courseInformation.numEnrolledStudents) << "\nDiscipline: " << courseInformation.disciplineBelongsTo << "\n";
+
+
+	cout << "\n\nEnter 1 to register course. Enter 0 to return to home page.\n";
+
+	char input;
+	cin >> input;
+
+	while (input != '1' && input != '0') {
+		cout << "\nPlease select a valid option\n";
+		cin >> input;
+	}
+	if (input == '0') {
+		displayUserOptions();
+	}
+	else if (input == '1')
+	{
+		cout << "\n Registering course\n";
+
+
+	}
 }
