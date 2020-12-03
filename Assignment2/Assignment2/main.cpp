@@ -10,7 +10,7 @@ using namespace std;
 
 int main(void) {
 
-	
+
 	//Login *LW = new Login();
 	//Database* DB;
 	//DB = new Database(LW);
@@ -28,7 +28,7 @@ int main(void) {
 	//getchar();
 
 	//LW->sendLoginInfo(user, password);
-	
+
 	//char user[50] = "Joe123";
 	//char pass[50] = "asdf";
 	//char name[50] = "Joe";
@@ -59,7 +59,8 @@ int main(void) {
 	Database* DB = new Database();
 	Home* myHome = new Home(); // myHome cuisine combo
 	DisciplineManager* disMan = new DisciplineManager();
-	Login *LW = new Login(DB, myHome, disMan);
+	CourseManager* courseMan = new CourseManager();
+	Login* LW = new Login(DB, myHome, disMan, courseMan);
 
 
 

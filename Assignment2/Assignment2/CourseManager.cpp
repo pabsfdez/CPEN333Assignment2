@@ -1,12 +1,16 @@
 #include "CourseManager.h"
+#include "Home.h"
 
 CourseManager::CourseManager()
 {
-	
+
 
 }
 
-Course** CourseManager::getAvailableCourses() {
+void CourseManager::getAvailableCourses(Home* home) {
 
-	return courses;
+	cout << "\nCourseManager sending array of available courses to Home\n";
+	home->sendAvailableCourses(courses);
 }
+
+
