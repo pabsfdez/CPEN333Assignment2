@@ -5,13 +5,19 @@
 
 using namespace std;
 
-class Course
-{
-private:
+class Home;
+
+struct courseInfo {
 	int numEnrolledStudents;
 	int numMaxStudentsAllowed;
 	char* disciplineBelongsTo;
 	char* courseName;
+};
+
+class Course
+{
+private:
+	courseInfo myInfo;
 
 
 public:
@@ -23,6 +29,7 @@ public:
 	void setNumMaxStudentsAllowed(int num);
 	void setDisciplineBelongsTo(char* discipline);
 	void setCourseName(char* name);
+	void getCourseInformation(Home* home);
 
 };
 

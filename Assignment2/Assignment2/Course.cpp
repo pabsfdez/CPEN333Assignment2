@@ -1,11 +1,12 @@
 #include "Course.h"
+#include "Home.h"
 
 Course::Course(int numEnrolled, int numMax, char* name, char* discipline)
 {
-	numEnrolledStudents = numEnrolled;
-	numMaxStudentsAllowed = numMax;
-	courseName = name;
-	disciplineBelongsTo = discipline;
+	myInfo.numEnrolledStudents = numEnrolled;
+	myInfo.numMaxStudentsAllowed = numMax;
+	myInfo.courseName = name;
+	myInfo.disciplineBelongsTo = discipline;
 
 }
 
@@ -16,30 +17,35 @@ Course::Course()
 
 char* Course::getName()
 {
-	return courseName;
+	return myInfo.courseName;
 }
 
 void Course::setCourseName(char* name)
 {
-	courseName = name;
+	myInfo.courseName = name;
 }
 
 void Course::setNumEnrolledStudents(int num)
 {
-	numEnrolledStudents = num;
+	myInfo.numEnrolledStudents = num;
 }
 
 void Course::setNumMaxStudentsAllowed(int num)
 {
-	numMaxStudentsAllowed = num;
+	myInfo.numMaxStudentsAllowed = num;
 }
 
-void Course::setDisciplineBelongsTo(char* discipline) 
+void Course::setDisciplineBelongsTo(char* discipline)
 {
-	disciplineBelongsTo = discipline;
+	myInfo.disciplineBelongsTo = discipline;
 }
 
-char* Course::getDisciplineBelongsTo() 
+char* Course::getDisciplineBelongsTo()
 {
-	return disciplineBelongsTo;
+	return myInfo.disciplineBelongsTo;
 }
+
+void Course::getCourseInformation(Home* home) {
+	home->sendCourseInformation(myInfo);
+}
+
