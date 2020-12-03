@@ -12,6 +12,7 @@ class DisciplineManager
 {
 private:
 
+	// hardcode 3 example disciplines
 	char mech[50] = "Mechanical";
 	char elec[50] = "Electrical";
 	char cpen[50] = "Computer";
@@ -25,9 +26,13 @@ private:
 
 public:
 	DisciplineManager();
+	int numberOfDisciplines = 3;
 	void getAvailableDisciplines(Home* home);
 };
 
 #endif
+
+
+
 
 
