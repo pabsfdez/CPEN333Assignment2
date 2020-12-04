@@ -1,5 +1,6 @@
 #include "Home.h"
 #include "Student.h"
+#include "Database.h"
 
 Home::Home()
 {
@@ -287,4 +288,295 @@ void Home::displayPaymentPage()
 	cout << "\n\nYour payment was successful.\n";
 
 	displayStudentOptions();
+}
+
+
+////////////////////////////////////////////////////////////////////////////
+//						Professor										  //
+////////////////////////////////////////////////////////////////////////////
+void Home::sendProfessorInfo(Professor* P)
+{
+	cout << "\n--Home has received account: " << P->getName() << " from Login" << "\n";
+
+	professor = P;
+	displayProfessortOptions();
+}
+
+void Home::displayProfessortOptions()
+{
+	cout << "\n--Home displaying options for user of account type Professor";
+
+	char input;
+	cout << "\n___________________________________________________________________\n";
+	cout << "\nWhat would you like to do?\n" << "1. Submit Grade\n2. Report Misconduct\n3. Assign Student to Discipline\n\n";
+	cin >> input;
+
+	while (input != '1' && input != '2' && input != '3') {
+		cout << "Please select a valid option by entering a number from 1 to 3\n";
+		cin >> input;
+	}
+
+	if (input == '1') {
+		cout << "\n___________________________________________________________________\n";
+		cout << "\n--Home sending request to submit grades to Home\n";
+
+		selectSubmitGrades();
+	}
+
+	else if (input == '2') {
+		cout << "\n___________________________________________________________________\n";
+		cout << "\n--Home sending request to report misconduct to Home\n";
+
+		selectReportMisconduct();
+	}
+
+	else if (input == '3') {
+		cout << "\n___________________________________________________________________\n";
+		cout << "\n--Home sending request to assign discipline to Home\n";
+
+		selectAssignDiscipline();
+	}
+}
+
+void Home::selectSubmitGrades()
+{
+	cout << "\nSelect Student to submit grade:\n";
+
+	DB->getListOfStudents(this);
+
+	for (int i = 0; i < 3; i++)
+	{
+		cout << to_string(i + 1) << ". " << listOfStudents[i]->getName() << "\n";
+	}
+	int stu;
+	cout << "\nSelect student to submit grade\n\n";
+	cin >> stu;
+
+	while (stu != 1 && stu != 2 && stu != 3) {
+		cout << "Please select a valid option by entering a number from 1 to 3\n";
+		cin >> stu;
+	}
+
+	
+	cout << "\n___________________________________________________________________\n";
+	displayStudentProfileGrade(stu);
+
+	
+}
+
+
+void Home::sendListOfStudents(Student** list) 
+{
+	listOfStudents = list;
+}
+
+void Home::displayStudentProfileGrade(int stuIndex)
+{
+	int input;
+	cout << "Enter grade for " << listOfStudents[stuIndex-1]->getName() << "\n";
+	cout << "Grade: ";
+	cin >> input;
+
+	listOfStudents[stuIndex-1]->setGrade(input, 0);
+}
+
+void Home::selectReportMisconduct()
+{
+	cout << "\nSelect Student to report misconduct:\n";
+
+	DB->getListOfStudents(this);
+
+	for (int i = 0; i < 3; i++)
+	{
+		cout << to_string(i + 1) << ". " << listOfStudents[i]->getName() << "\n";
+	}
+	int stu;
+	cin >> stu;
+
+	while (stu != 1 && stu != 2 && stu != 3) {
+		cout << "Please select a valid option by entering a number from 1 to 3\n";
+		cin >> stu;
+	}
+
+
+	cout << "\n___________________________________________________________________\n";
+	displayStudentProfileMisconduct(stu);
+}
+
+void Home::displayStudentProfileMisconduct(int stuIndex)
+{
+	int input;
+	cout << "Report academic misconduct incident for " << listOfStudents[stuIndex - 1]->getName() << "?\n";
+	cout << "Enter 1 for yes. Enter 0 for no.\n";
+	cin >> input;
+	while (input != 0 && input != 1) {
+		cout << "Enter 1 for yes. Enter 0 for no.\n";
+		cin >> input;
+	}
+
+	if (input == 1)
+	{
+		listOfStudents[stuIndex - 1]->incrementCheatingStrikes();
+		cout << "Incident reported\n";
+		displayProfessortOptions();
+	}
+	else if (input == 0)
+	{
+		displayProfessortOptions();
+	}
+}
+
+void Home::selectAssignDiscipline()
+{
+	cout << "\nSelect Student to assign Discipline:\n";
+
+	DB->getListOfStudents(this);
+
+	for (int i = 0; i < 3; i++)
+	{
+		cout << to_string(i + 1) << ". " << listOfStudents[i]->getName() << "\n";
+	}
+	int stu;
+	cin >> stu;
+
+	while (stu != 1 && stu != 2 && stu != 3) {
+		cout << "Please select a valid option by entering a number from 1 to 3\n";
+		cin >> stu;
+	}
+
+
+	cout << "\n___________________________________________________________________\n";
+	displayStudentProfileDiscipline(stu);
+}
+
+void Home::displayStudentProfileDiscipline(int stuIndex)
+{
+	//Display Disciplines
+
+
+	int input;
+	cout << "Assign discipline for " << listOfStudents[stuIndex - 1]->getName() << "\n";
+	char mech[50] = "Mechanical";
+	char elec[50] = "Electrical";
+	char cpen[50] = "Computer";
+
+	cout << "\n1. Mechanical\n2. Electrical\n3. Computer\n";
+
+	cin >> input;
+	while (input != 1 && input != 2 && input !=3) {
+		cout << "Enter 1, 2 or 3.\n";
+		cin >> input;
+	}
+
+	if (input == 1)
+	{
+		listOfStudents[stuIndex - 1]->setDiscipline(mech);
+		cout << listOfStudents[stuIndex-1]->getName() << " assigned to Mechanical\n";
+	}
+	else if (input == 2)
+	{
+		listOfStudents[stuIndex-1]->setDiscipline(elec);
+		cout << listOfStudents[stuIndex-1]->getName() << " assigned to Electrical\n";
+
+	}
+	else if (input == 3)
+	{
+		listOfStudents[stuIndex-1]->setDiscipline(cpen);
+		cout << listOfStudents[stuIndex-1]->getName() << " assigned to Computer\n";
+
+	}
+	displayProfessortOptions();
+}
+
+
+////////////////////////////////////////////////////////////////////////////
+//						Dean											  //
+////////////////////////////////////////////////////////////////////////////
+
+void Home::sendDeanInfo(Dean* D)
+{
+	cout << "\n--Home has received account: " << D->getName() << " from Login" << "\n";
+
+	dean = D;
+	displayDeanOptions();
+}
+
+void Home::displayDeanOptions()
+{
+	cout << "\n--Home displaying options for user of account type Professor";
+
+	char input;
+	cout << "\n___________________________________________________________________\n";
+	cout << "\nWhat would you like to do?\n" << "1. Suspend Student\n\n";
+	cin >> input;
+
+	while (input != '1') {
+		cout << "Please select a valid option by entering a number from 1 to 1\n";
+		cin >> input;
+	}
+
+	if (input == '1') {
+		cout << "\n___________________________________________________________________\n";
+		cout << "\n--Home sending request to submit grades to Home\n";
+
+		selectSuspendStudent();
+	}
+}
+
+
+
+void Home::selectSuspendStudent()
+{
+	cout << "\nSelect Student to suspend:\n";
+
+	DB->getListOfStudents(this);
+
+	for (int i = 0; i < 3; i++)
+	{
+		cout << to_string(i + 1) << ". " << listOfStudents[i]->getName() << "\n";
+	}
+	int stu;
+	cin >> stu;
+
+	while (stu != 1 && stu != 2 && stu != 3) {
+		cout << "Please select a valid option by entering a number from 1 to 3\n";
+		cin >> stu;
+	}
+
+
+	cout << "\n___________________________________________________________________\n";
+	displayStudentProfileSuspend(stu);
+}
+
+
+void Home::displayStudentProfileSuspend(int stuIndex)
+{
+	int input;
+	cout << "Suspend " << listOfStudents[stuIndex - 1]->getName() << "?\n";
+	cout << "Enter 1 for yes. Enter 0 for no.\n";
+	cin >> input;
+	while (input != 0 && input != 1) {
+		cout << "Enter 1 for yes. Enter 0 for no.\n";
+		cin >> input;
+	}
+
+	if (input == 1)
+	{
+
+		if (listOfStudents[stuIndex - 1]->getSuspensionStatus() == true)
+		{
+			cout << listOfStudents[stuIndex - 1]->getName() << " is already suspended.\n";
+		}
+		else
+		{
+			listOfStudents[stuIndex - 1]->setSuspensionStatus(true);
+			cout << listOfStudents[stuIndex - 1]->getName() << " has been suspended and can no longer register in courses.\n";
+		}
+
+		displayDeanOptions();
+	}
+	else if (input == 0)
+	{
+		displayDeanOptions();
+	}
 }

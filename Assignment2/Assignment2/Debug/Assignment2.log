@@ -1,2 +1,9 @@
-﻿  Home.cpp
+﻿  Database.cpp
+C:\CPEN333Assignment2\Assignment2\Assignment2\Login.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Home.cpp
+  Login.cpp
+C:\CPEN333Assignment2\Assignment2\Assignment2\Login.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  main.cpp
+C:\CPEN333Assignment2\Assignment2\Assignment2\Login.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Generating Code...
   Assignment2.vcxproj -> C:\CPEN333Assignment2\Assignment2\Debug\Assignment2.exe

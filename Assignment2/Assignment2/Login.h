@@ -22,14 +22,9 @@ public:
 	Login(Database* dataB, Home* hm, DisciplineManager* DM, CourseManager* CM);
 	void sendLoginInfo(char* user, char* pass);
 	void sendStudentInfo(Student* S);
-	void sendProfInfo(); 
+	void sendProfessorInfo(Professor* P); 
+	void sendDeanInfo(Dean* D);
 
 };
 
 #endif
-
-
-
-
-
-

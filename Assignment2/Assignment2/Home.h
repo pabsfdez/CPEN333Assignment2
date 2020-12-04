@@ -4,11 +4,15 @@
 #include "..\rt.h"
 #include "DisciplineManager.h"
 #include "CourseManager.h"
+#include "Professor.h"
+#include "Dean.h"
+
 
 using namespace std;
 
 class Login;
 class Student;
+class Database;
 
 class Home
 {
@@ -19,13 +23,18 @@ private:
 	courseInfo courseInformation;
 	Student* student;
 	Course* course;
+	Professor* professor;
+	Student** listOfStudents;
+	Dean* dean;
 
 public:
 	Home();
 	Login* LG;
+	Database* DB;
 	DisciplineManager* disMan;
 	CourseManager* courseMan;
 
+	// Student use cases
 	void sendStudentInfo(Student* S);
 	void displayStudentOptions(); 
 	void selectRankDisciplines();
@@ -43,6 +52,25 @@ public:
 	void sendFinancialSummary(int balance);
 	void displayFinancialSummary(int balance);
 	void displayPaymentPage();
+	void sendListOfStudents(Student** list);
+	void displayStudentProfileGrade(int stuIndex);
+	void displayStudentProfileMisconduct(int stuIndex);
+
+	// Professor use cases
+	void displayProfessortOptions();
+	void selectSubmitGrades();
+	void sendProfessorInfo(Professor* P);
+	void selectReportMisconduct();
+	void selectAssignDiscipline();
+	void displayStudentProfileDiscipline(int stu);
+
+
+	// Dean use cases
+	void displayDeanOptions();
+	void sendDeanInfo(Dean *D);
+	void selectSuspendStudent();
+	void displayStudentProfileSuspend(int stuIndex);
+
 
 	void logout();
 };

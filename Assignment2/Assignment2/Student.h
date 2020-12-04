@@ -11,7 +11,7 @@ struct studentInfo {
 	bool suspended;
 	Course* courses[7];
 	int numberOfCourses;
-	float* grades;
+	int grades[7] = {0,0,0,0,0,0,0};
 	int financialBalance;
 	int yearLevel;
 };
@@ -22,11 +22,11 @@ private:
 	studentInfo myInfo;
 
 public:
-	Student(char* dis, int strikes, Course* course, int numCourses, float* Grades,
+	Student(char* dis, int strikes, Course* course, int numCourses, int* Grades,
 		int balance, char* user, char* pass, char* Name, char* userID, bool sus, int y);
 	//Student();
 	void setDiscipline(char* dis);
-	void setCheatingStrikes(int strikes);
+	void incrementCheatingStrikes();
 	void updateRegisteredCourses(Course* Course, int courseIndex);
 	void incrementNumberOfRegisteredCourses();
 	void setGrade(int grade, int gradeIndex);
@@ -36,6 +36,7 @@ public:
 	int getYearLevel();
 	int getNumberRegisteredCourses();
 	void getFinancialSummary(Home* home);
+	void setSuspensionStatus(bool sus);
 
 	studentInfo getStudentInfo();
 

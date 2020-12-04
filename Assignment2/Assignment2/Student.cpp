@@ -1,14 +1,14 @@
 #include "Student.h"
 #include "Home.h"
 
-Student::Student(char* dis, int strikes, Course* course, int numCourses, float* Grades,
+Student::Student(char* dis, int strikes, Course* course, int numCourses, int* Grades,
 	int balance, char* user, char* pass, char* Name, char* userID, bool sus, int y)
 {
 	myInfo.discipline = dis;
 	myInfo.cheatingStrikes = strikes;
 	myInfo.courses[numCourses] = course;
 	myInfo.numberOfCourses = numCourses;
-	myInfo.grades = Grades;
+	//myInfo.grades[numCourses] = Grades;
 	myInfo.financialBalance = balance;
 	myInfo.suspended = sus;
 	myInfo.yearLevel = y;
@@ -31,9 +31,9 @@ void Student::setDiscipline(char* dis)
 	myInfo.discipline = dis;
 }
 
-void Student::setCheatingStrikes(int strikes)
+void Student::incrementCheatingStrikes()
 {
-	myInfo.cheatingStrikes = strikes;
+	myInfo.cheatingStrikes++;
 }
 
 void Student::updateRegisteredCourses(Course* Course, int courseIndex)
@@ -85,4 +85,9 @@ int Student::getNumberRegisteredCourses()
 void Student::getFinancialSummary(Home* home)
 {
 	home->sendFinancialSummary(myInfo.financialBalance);
+}
+
+void Student::setSuspensionStatus(bool sus)
+{
+	myInfo.suspended = sus;
 }

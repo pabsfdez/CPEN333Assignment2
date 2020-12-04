@@ -143,11 +143,13 @@
     <ClCompile Include="Course.cpp" />
     <ClCompile Include="CourseManager.cpp" />
     <ClCompile Include="Database.cpp" />
+    <ClCompile Include="Dean.cpp" />
     <ClCompile Include="Discipline.cpp" />
     <ClCompile Include="DiscplineManager.cpp" />
     <ClCompile Include="Home.cpp" />
     <ClCompile Include="Login.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Professor.cpp" />
     <ClCompile Include="Student.cpp" />
     <ClCompile Include="User.cpp" />
   </ItemGroup>
@@ -156,10 +158,12 @@
     <ClInclude Include="Course.h" />
     <ClInclude Include="CourseManager.h" />
     <ClInclude Include="Database.h" />
+    <ClInclude Include="Dean.h" />
     <ClInclude Include="Discipline.h" />
     <ClInclude Include="DisciplineManager.h" />
     <ClInclude Include="Home.h" />
     <ClInclude Include="Login.h" />
+    <ClInclude Include="Professor.h" />
     <ClInclude Include="Student.h" />
     <ClInclude Include="User.h" />
   </ItemGroup>
