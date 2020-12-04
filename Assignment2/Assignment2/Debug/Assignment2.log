@@ -1,8 +1,17 @@
-﻿  Database.cpp
+﻿  Course.cpp
+  CourseManager.cpp
+  Database.cpp
 C:\CPEN333Assignment2\Assignment2\Assignment2\Login.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Dean.cpp
+  Discipline.cpp
+  DiscplineManager.cpp
   Home.cpp
   Login.cpp
 C:\CPEN333Assignment2\Assignment2\Assignment2\Login.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Professor.cpp
+  Student.cpp
+C:\CPEN333Assignment2\Assignment2\Assignment2\Student.cpp(53,35): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+  User.cpp
   main.cpp
 C:\CPEN333Assignment2\Assignment2\Assignment2\Login.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
   Generating Code...

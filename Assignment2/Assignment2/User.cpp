@@ -1,12 +1,5 @@
 #include "User.h"
 
-//User::User(char* user, char* pass, char* Name, char* userID)
-//{
-//	username = user;
-//	password = pass;
-//	name = Name;
-//	ID = userID;
-//}
 
 User::User()
 {

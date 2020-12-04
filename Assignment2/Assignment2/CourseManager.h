@@ -23,7 +23,7 @@ private:
 	Course* MECH423 = new Course(33, 35, mech423name, mech, 4, 520);
 	Course* ELEC201 = new Course(305, 310, elec201name, elec, 2, 500);
 
-	// create array of all available courses
+	// hardcode array of all available courses
 	Course* courses[3] = { CPEN333, MECH423, ELEC201 };
 
 

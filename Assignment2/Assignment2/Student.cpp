@@ -21,10 +21,7 @@ Student::Student(char* dis, int strikes, Course* course, int numCourses, int* Gr
 
 }
 
-//Student::Student()
-//{
-//	
-//}
+
 
 void Student::setDiscipline(char* dis)
 {
@@ -82,8 +79,11 @@ int Student::getNumberRegisteredCourses()
 	return myInfo.numberOfCourses;
 }
 
+// Home calls this function to get the Student's financial info
 void Student::getFinancialSummary(Home* home)
 {
+	cout << "\n--Student sending financial info to Home\n";
+
 	home->sendFinancialSummary(myInfo.financialBalance);
 }
 
@@ -91,3 +91,9 @@ void Student::setSuspensionStatus(bool sus)
 {
 	myInfo.suspended = sus;
 }
+
+void Student::setDisciplineRanking(int index, int rank)
+{
+	myInfo.disciplineRankings[index] = rank;
+}
+

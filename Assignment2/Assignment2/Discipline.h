@@ -19,6 +19,7 @@ public:
 	void setNumEnrolledStudents(int num);
 	void setNumMaxStudentsAllowed(int num);
 	void setDisciplineName(char* name);
+	void incrementStudentsEnrolled();
 };
 
 #endif

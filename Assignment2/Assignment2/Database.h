@@ -9,13 +9,6 @@ using namespace std;
 
 class Login;
 
-//struct studentInfo {
-//	char* username;
-//	char* password;
-//	char* name;
-//	char* studentID;
-//};
-
 class Database
 {
 private:

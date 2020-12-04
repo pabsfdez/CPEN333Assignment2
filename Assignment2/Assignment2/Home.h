@@ -29,12 +29,13 @@ private:
 
 public:
 	Home();
+	// homes needs handle for other objects to communicate with them
 	Login* LG;
 	Database* DB;
 	DisciplineManager* disMan;
 	CourseManager* courseMan;
 
-	// Student use cases
+	// functions needed for student use cases
 	void sendStudentInfo(Student* S);
 	void displayStudentOptions(); 
 	void selectRankDisciplines();
@@ -56,7 +57,7 @@ public:
 	void displayStudentProfileGrade(int stuIndex);
 	void displayStudentProfileMisconduct(int stuIndex);
 
-	// Professor use cases
+	// functions needed for professor use cases
 	void displayProfessortOptions();
 	void selectSubmitGrades();
 	void sendProfessorInfo(Professor* P);
@@ -65,7 +66,7 @@ public:
 	void displayStudentProfileDiscipline(int stu);
 
 
-	// Dean use cases
+	// functions needed for dean use cases
 	void displayDeanOptions();
 	void sendDeanInfo(Dean *D);
 	void selectSuspendStudent();

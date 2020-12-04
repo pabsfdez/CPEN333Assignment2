@@ -20,6 +20,7 @@ private:
 	Discipline* Electrical = new Discipline(700, 800, elec);
 	Discipline* Computer = new Discipline(300, 400, cpen);
 
+	// hardcode list of all available disciplines
 	Discipline* disciplines[3] = { Mechanical, Electrical, Computer };
 
 

@@ -9,11 +9,12 @@ struct studentInfo {
 	char* discipline;
 	int cheatingStrikes;
 	bool suspended;
-	Course* courses[7];
+	Course* courses[7]; // hardcode 7 as max number of courses that can be taken at once
 	int numberOfCourses;
-	int grades[7] = {0,0,0,0,0,0,0};
+	int grades[7] = {0,0,0,0,0,0,0}; // indices in grades array align with courses array
 	int financialBalance;
 	int yearLevel;
+	int disciplineRankings[3] = { 0,0,0 }; // index 0 is mech ranking, 1 is elec ranking, 2 is cpen ranking
 };
 
 class Student : public User
@@ -24,7 +25,6 @@ private:
 public:
 	Student(char* dis, int strikes, Course* course, int numCourses, int* Grades,
 		int balance, char* user, char* pass, char* Name, char* userID, bool sus, int y);
-	//Student();
 	void setDiscipline(char* dis);
 	void incrementCheatingStrikes();
 	void updateRegisteredCourses(Course* Course, int courseIndex);
@@ -37,6 +37,7 @@ public:
 	int getNumberRegisteredCourses();
 	void getFinancialSummary(Home* home);
 	void setSuspensionStatus(bool sus);
+	void setDisciplineRanking(int index, int rank);
 
 	studentInfo getStudentInfo();
 

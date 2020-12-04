@@ -6,8 +6,9 @@ DisciplineManager::DisciplineManager()
 
 }
 
+// Home calls this function when it needs a list of all available disciplines
 void DisciplineManager::getAvailableDisciplines(Home* home) {
 
-	cout << "\nDisciplineManager sending array of available disciplines to Home\n";
+	cout << "\n--DisciplineManager sending array of available disciplines to Home\n";
 	home->sendAvailableDisciplines(disciplines);
 }

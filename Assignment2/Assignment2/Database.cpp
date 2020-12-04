@@ -5,10 +5,10 @@ Database::Database()
 
 }
 
+// login calls this function to send the user entered username and password to database
 void Database::sendLoginInfo(char* user, char* pass) {
 	username = user;
 	password = pass;
-	//printf("Database received username and password: %s %s\n", *username, *password);
 	cout << "\n--Database received username and password: " << username << " " << password << "\n";
 
 	authenticateLoginInfo();
@@ -17,7 +17,7 @@ void Database::sendLoginInfo(char* user, char* pass) {
 // hardcode the authentication of username and password
 void Database::authenticateLoginInfo() {
 
-	// check user 1
+	// check student1
 	int flag = 1;
 	for (int i = 0; i <= 7; i++)
 	{
@@ -41,7 +41,7 @@ void Database::authenticateLoginInfo() {
 
 	}
 
-	// check user 2
+	// check student2
 flag = 1;
 	for (int i = 0; i <= 7; i++)
 	{
@@ -67,7 +67,7 @@ flag = 1;
 
 
 
-	// check user 3
+	// check student3
 	flag = 1;
 	for (int i = 0; i <=7; i++)
 	{
@@ -93,7 +93,7 @@ flag = 1;
 
 
 
-	// check user 4
+	// check prof1
 	flag = 1;
 	for (int i = 0; i <= 4; i++)
 	{
@@ -118,7 +118,7 @@ flag = 1;
 	}
 
 
-	// check user 5
+	// check dean
 	flag = 1;
 	for (int i = 0; i <= 3; i++)
 	{
@@ -146,8 +146,10 @@ flag = 1;
 
 }
 
-
+// Home calls this function when it needs a list of all students
 void Database::getListOfStudents(Home* home)
 {
+	cout << "\n--Database sending list of students to Home\n";
+
 	home->sendListOfStudents(students);
 }

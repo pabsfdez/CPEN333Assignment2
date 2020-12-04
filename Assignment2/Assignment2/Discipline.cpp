@@ -32,3 +32,8 @@ void Discipline::setNumMaxStudentsAllowed(int num)
 {
 	numMaxStudentsAllowed = num;
 }
+
+void Discipline::incrementStudentsEnrolled()
+{
+	numEnrolledStudents++;
+}

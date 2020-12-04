@@ -4,6 +4,7 @@
 
 using namespace std;
 
+// generic class that Student, Professor, and Dean inherit
 class User {
 protected:
 	char* username;
@@ -12,7 +13,6 @@ protected:
 	char* ID;
 
 public:
-	//User(char* user, char* pass, char* Name, char* userID);
 	char* getUsername();
 	char* getPassword();
 	char* getName();

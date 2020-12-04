@@ -14,6 +14,7 @@ Professor::Professor(char* dis, Course* course, int numCourses, char* user, char
 
 }
 
+// return struct of Prof's info
 professorInfo Professor::getProfessorInfo()
 {
 	return myInfo;
